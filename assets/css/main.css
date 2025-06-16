@@ -2864,3 +2864,42 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+
+/* 自定義明杰伙食募資計畫的圖片樣式 - 如果找不到特定 .features .icon 規則，請加在此處 */
+.icon img {
+  width: 100%; /* 讓圖片寬度充滿父容器 (.icon) */
+  height: 100%; /* 讓圖片高度充滿父容器 (.icon) */
+  object-fit: cover; /* 裁剪圖片以填滿容器，保持長寬比 */
+  border-radius: 50%; /* 如果你希望圖片是圓形的，例如頭像 */
+  /* 如果你的圖示本身有邊框或陰影，你可能也想在這裡為圖片添加 */
+  /* border: 2px solid var(--accent-color); */
+}
+
+/* 自定義 .image-side-by-side 樣式 */
+.image-side-by-side {
+  display: flex;          /* 確保啟用 Flexbox 佈局 */
+  flex-direction: row;    /* 將這裡設定為 row，讓圖片水平排列 */
+  align-items: center;    /* 讓圖片在垂直方向上居中對齊 (可選) */
+  justify-content: center;/* 讓圖片在水平方向上居中排列 (可選) */
+  gap: 20px;              /* 設置圖片之間的間距 */
+  flex-wrap: wrap;        /* 允許圖片在空間不足時自動換行 */
+  padding: 20px 0;
+}
+
+.image-side-by-side img {
+  max-width: 48%;   /* 根據圖片大小調整，例如 48% 或更小 */
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* 針對移動設備的響應式調整 */
+@media (max-width: 768px) {
+  .image-side-by-side {
+    flex-direction: column; /* 在小螢幕上通常還是希望垂直排列，可以保留 */
+    gap: 15px;
+  }
+  .image-side-by-side img {
+    max-width: 90%;
+  }
+}
